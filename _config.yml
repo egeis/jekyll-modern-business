@@ -1,0 +1,24 @@
+# Site settings
+title: Your awesome title
+description: >
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" 
+url: "http://localhost:4000" 
+
+#Social Media
+twitter_username: jekyllrb
+github_username:  jekyll
+
+# Build settings
+markdown: kramdown
+gems:
+  - jekyll-feed
+  - jekyll-sitemap
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+#Additional settings
+placeholder_images_baseurl: http://placehold.it/
