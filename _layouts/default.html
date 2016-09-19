@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+    {% include navigation.html %}
+	{% if page.carousel %}
+	{% include carousel.html %}
+	{% endif %}
+    <!-- Page Content -->
+    <div class="container">
+       {{ content }}
+       {% include footer.html %}
+	   {% include scripts.html %}
+    </div>
+    <!-- /.container -->
+</body>
+</html>

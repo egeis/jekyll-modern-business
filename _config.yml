@@ -1,5 +1,6 @@
 # Site settings
 title: Your awesome title
+email: your-email@domain.com
 description: >
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -7,9 +8,11 @@ description: >
 baseurl: "" 
 url: "http://localhost:4000" 
 
-#Social Media
+#Social Media & Contect Settings
 twitter_username: jekyllrb
 github_username:  jekyll
+linkedin_username: example
+enable_mailto: true
 
 # Build settings
 markdown: kramdown
@@ -19,6 +22,12 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+  
+# Collection definitions and settings
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
 
-#Additional settings
-placeholder_images_baseurl: http://placehold.it/
+# File structure settings
+images_baseurl: http://placehold.it/
