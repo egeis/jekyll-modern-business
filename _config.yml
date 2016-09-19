@@ -8,6 +8,10 @@ description: >
 baseurl: "" 
 url: "http://localhost:4000" 
 
+#Pagination Settings
+paginate: 3
+paginate_path: "/blog/page:num/"
+
 #Social Media & Contect Settings
 twitter_username: jekyllrb
 github_username:  jekyll
@@ -18,6 +22,7 @@ enable_mailto: true
 markdown: kramdown
 gems:
   - jekyll-feed
+  - jekyll-paginate
   - jekyll-sitemap
 exclude:
   - Gemfile
