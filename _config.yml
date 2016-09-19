@@ -28,6 +28,8 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  tags:
+    output: true
+    permalink: /blog/tag/:name/
 
 # File structure settings
-images_baseurl: http://placehold.it/
