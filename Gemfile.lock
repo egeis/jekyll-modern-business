@@ -135,6 +135,8 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  jekyll-feed
+  jekyll-paginate
   jekyll-sitemap
   wdm (>= 0.1.0)
 
