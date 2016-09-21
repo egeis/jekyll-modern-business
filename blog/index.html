@@ -1,12 +1,14 @@
 ---
 layout: blog
-title: Blog Home One
-subheading: Subheading
+title: Blog 
+subheading: Style One
+paginate:
+    collection:   posts
 ---
  <div class="row">
 	<!-- Blog Entries Column -->
 	<div class="col-md-8">
-		{% for post in site.posts %}
+		{% for post in paginator.posts %}
 			{% if post.author == blank %}
 			{% assign post.author = site.author %}
 			{% endif %}
@@ -58,6 +60,7 @@ subheading: Subheading
 			{% endif %}
 		</ul>
 		{% endif %}
+		<h1>{{paginator.total_pages}}</h1>
 	</div>
 	{% include blog-sidebar.html %}
 </div>

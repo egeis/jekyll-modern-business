@@ -1,41 +1,52 @@
-# Site settings
+  # Site settings
 title: Your awesome title
 email: your-email@domain.com
 description: >
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "/jekyll-modern-business" 
-url: ""
-#url: "http://localhost:4000" 
+#baseurl: "/jekyll-modern-business" 
+#url: ""
+url: "http://localhost:4000" 
+
+# permalinks
+permalink: pretty
+
+# Build settings
+markdown: kramdown
+gems:
+  - jekyll-feed
+  - jekyll-sitemap
+  - octopress-paginate
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+incremental: true
+destination: _site/
 
 #Pagination Settings
-paginate: 3
-paginate_path: "/blog/page:num/"
+pagination:
+    limit:          false
+    per_page:       3
 
 #Social Media & Contect Settings
 twitter_username: jekyllrb
 github_username:  jekyll
 linkedin_username: example
 enable_mailto: true
-
-# Build settings
-markdown: kramdown
-gems:
-  - jekyll-feed
-  - jekyll-paginate
-  - jekyll-sitemap
-exclude:
-  - Gemfile
-  - Gemfile.lock
   
 # Collection definitions and settings
 collections:
+  posts:
+    permalink: /blog/:year/:month/:day/:title/
+    output: true
   projects:
     output: true
-    permalink: /projects/:path/
+    permalink: /:collection/:path/
   tags:
     output: true
-    permalink: /blog/tag/:name/
+    permalink: /:collection/:name/
 
 # File structure settings
