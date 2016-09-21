@@ -21,7 +21,7 @@ paginate:
 			{% endif %}
 		<!-- Blog Post -->
 		<h2>
-			<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+			<a href="{{ post.url | prepend: site.url }}">{{ post.title | escape }}</a>
 		</h2>
 		<p class="lead">
 			by <a href="#" class="disabled">{{ post.author }}</a>
@@ -33,7 +33,7 @@ paginate:
 		</a>
 		<hr>
 		<p>{{ post.excerpt | markdownify }}</p>
-		<a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read More <i class="fa fa-angle-right"></i></a>
+		<a class="btn btn-primary" href="{{ post.url | prepend: site.url }}">Read More <i class="fa fa-angle-right"></i></a>
 
 		<hr>
 		{% endfor %}
@@ -42,7 +42,7 @@ paginate:
 		<ul class="pager">
 			{% if paginator.previous_page %}
 			<li class="previous">
-				<a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Older</a>
+				<a href="{{ paginator.previous_page_path | prepend: site.url | replace: '//', '/' }}">&larr; Older</a>
 			</li>
 			{% else %}
 			<li class="previous disabled">
@@ -52,7 +52,7 @@ paginate:
 			
 			{% if paginator.next_page %}
 			<li class="next">
-				<a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Newer &rarr;</a>
+				<a href="{{ paginator.next_page_path | prepend: site.url | replace: '//', '/' }}">Newer &rarr;</a>
 			</li>
 			{% else %}
 			<li class="next disabled">

@@ -23,18 +23,18 @@ paginate:
 		<p>{{ post.date | date: "%b %-d, %Y" }}</p>
 	</div>
 	<div class="col-md-5">
-		<a href="{{ post.url | prepend: site.baseurl }}">
+		<a href="{{ post.url | prepend: site.url }}">
 			<img class="img-responsive img-hover" src="{{frontimagesrc}}" alt="{{frontimagealt}}">
 		</a>
 	</div>
 	<div class="col-md-6">
 		<h3>
-			<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+			<a href="{{ post.url | prepend: site.url }}">{{ post.title | escape }}</a>
 		</h3>
 		<p>by <a href="#" class="disabled">{{ post.author }}</a>
 		</p>
 		<p>{{ post.excerpt | markdownify }}</p>
-		<a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}"">Read More <i class="fa fa-angle-right"></i></a>
+		<a class="btn btn-primary" href="{{ post.url | prepend: site.url }}"">Read More <i class="fa fa-angle-right"></i></a>
 	</div>
 </div>
 <!-- /.row -->
@@ -49,7 +49,7 @@ paginate:
 		<ul class="pager">
 			{% if paginator.previous_page %}
 			<li class="previous">
-				<a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Older</a>
+				<a href="{{ paginator.previous_page_path | prepend: site.url | replace: '//', '/' }}">&larr; Older</a>
 			</li>
 			{% else %}
 			<li class="previous disabled">
@@ -59,7 +59,7 @@ paginate:
 			
 			{% if paginator.next_page %}
 			<li class="next">
-				<a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Newer &rarr;</a>
+				<a href="{{ paginator.next_page_path | prepend: site.url | replace: '//', '/' }}">Newer &rarr;</a>
 			</li>
 			{% else %}
 			<li class="next disabled">
@@ -70,4 +70,3 @@ paginate:
 </div>
 {% endif %}
 <!-- /.row -->
-
