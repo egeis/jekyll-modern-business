@@ -3,7 +3,8 @@ layout: blog
 title: Blog 
 subheading: Style One
 paginate:
-    collection:   posts
+  collection: posts
+  permalink: /page:num/
 ---
  <div class="row">
 	<!-- Blog Entries Column -->
@@ -60,7 +61,6 @@ paginate:
 			{% endif %}
 		</ul>
 		{% endif %}
-		<h1>{{paginator.total_pages}}</h1>
 	</div>
 	{% include blog-sidebar.html %}
 </div>

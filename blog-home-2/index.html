@@ -1,9 +1,12 @@
 ---
 layout: blog
-title: Blog Home Two
-subheading: Subheading
+title: Blog
+subheading: Style Two
+paginate:
+  collection: posts
+  permalink: /page:num/
 ---
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 	{% if post.author == blank %}
 	{% assign post.author = site.author %}
 	{% endif %}
@@ -67,3 +70,4 @@ subheading: Subheading
 </div>
 {% endif %}
 <!-- /.row -->
+
