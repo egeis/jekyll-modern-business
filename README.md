@@ -2,6 +2,8 @@
 
 [Modern Business](http://startbootstrap.com/template-overviews/modern-business/) is a multipurpose, full website template for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This template includes 17 unique HTML pages and a Google forms embeded contact form.
 
+[Modern Business Preview](https://egeis.github.io/jekyll-modern-business/) from from github.io.
+
 ## Getting Started
 
 To begin using this template, choose one of the following options to get started:
@@ -12,9 +14,6 @@ To begin using this template, choose one of the following options to get started
 
 Have a bug or an issue with this fork? [Open a new issue](https://github.com/egeis/jekyll-modern-business/issues) here on GitHub. 
 Do not contact the creator unless you are promted to after submitting an issue, my coding errors are not theirs.
-
-## Fork
-Forked from BlackrockDigital/startbootstrap-modern-business
 
 ## Creator
 Jekyll Modern Business is a [fork] (https://github.com/BlackrockDigital/startbootstrap-modern-business) from [Blackrock Digital](https://github.com/BlackrockDigital).
