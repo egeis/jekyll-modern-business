@@ -4,15 +4,15 @@ title: Project Four
 subheading: The fourth be with you.
 carousel:
  - src: http://placehold.it/750x500
-   text: image from placehold.it
+   alt: image from placehold.it
    title: PlaceHolder One
    caption: PlaceHolder One
  - src: http://placehold.it/750x500
-   text: image from placehold.it
+   alt: image from placehold.it
    title: PlaceHolder Two
    caption: PlaceHolder Two
  - src: http://placehold.it/750x500
-   text: image from placehold.it 
+   alt: image from placehold.it 
    title: PlaceHolder Three
    caption: PlaceHolder Three   
 ---

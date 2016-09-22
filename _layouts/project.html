@@ -26,7 +26,7 @@ script: |
 			<div class="carousel-inner">
 				{% for image in page.carousel %}
 				<div class="item {% if forloop.first %}active{% endif %}">
-					<img class="img-responsive" src="{{image.src}}"{% if img.txt %} alt="{{img.text}}"{% endif %} />
+					<img class="img-responsive" src="{{image.src}}"{% if img.txt %} alt="{{img.alt}}"{% endif %} />
 					<div class="carousel-caption">
 						<h2>{{ image.title }}</h2>
 						<p>{{ image.caption }}</p>
