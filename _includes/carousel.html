@@ -1,32 +1,25 @@
+{% if page.carousel %}
 <!-- Header Carousel -->
 <header id="myCarousel" class="carousel slide">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1"></li>
-		<li data-target="#myCarousel" data-slide-to="2"></li>
+		{% for image in page.carousel %}
+		<li data-target="#myCarousel" data-slide-to="{{ forloop.index }}"{% if forloop.first %} class="active"{% endif %}></li>
+		{% endfor %}
 	</ol>
 
 	<!-- Wrapper for slides -->
+	
 	<div class="carousel-inner">
-		<div class="item active">
-			<div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
+		{% for image in page.carousel %}
+		<div class="item {% if forloop.first %}active{% endif %}">
+			<div class="fill" style="background-image:url('{{image.src}}');"></div>
 			<div class="carousel-caption">
-				<h2>Caption 1</h2>
+				<h2>{{ image.title }}</h2>
+				<p>{{ image.caption }}</p>
 			</div>
 		</div>
-		<div class="item">
-			<div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-			<div class="carousel-caption">
-				<h2>Caption 2</h2>
-			</div>
-		</div>
-		<div class="item">
-			<div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-			<div class="carousel-caption">
-				<h2>Caption 3</h2>
-			</div>
-		</div>
+		{% endfor %}
 	</div>
 
 	<!-- Controls -->
@@ -37,3 +30,4 @@
 		<span class="icon-next"></span>
 	</a>
 </header>
+{% endif %}
