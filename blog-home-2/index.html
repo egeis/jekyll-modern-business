@@ -49,7 +49,7 @@ paginate:
 		<ul class="pager">
 			{% if paginator.previous_page %}
 			<li class="previous">
-				<a href="{{ paginator.previous_page_path | prepend: site.url | replace: '//', '/' }}">&larr; Older</a>
+				<a href="{{ paginator.previous_page_path | replace: '//', '/' | prepend: site.url }}">&larr; Older</a>
 			</li>
 			{% else %}
 			<li class="previous disabled">
@@ -59,7 +59,7 @@ paginate:
 			
 			{% if paginator.next_page %}
 			<li class="next">
-				<a href="{{ paginator.next_page_path | prepend: site.url | replace: '//', '/' }}">Newer &rarr;</a>
+				<a href="{{ paginator.next_page_path | replace: '//', '/' | prepend: site.url }}">Newer &rarr;</a>
 			</li>
 			{% else %}
 			<li class="next disabled">
