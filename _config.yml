@@ -43,7 +43,7 @@ collections:
     output: true
   projects:
     output: true
-    permalink: /:collection/:path/
+    permalink: /portfolio/:path/
   tags:
     output: true
     permalink: /:collection/:name/

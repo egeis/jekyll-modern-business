@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: portfolio-index
 title: Projects
 subheading: Three Column
 breadcrumb: Projects 3 Column
@@ -30,44 +30,4 @@ paginate:
 		<p>{{ project.excerpt | markdownify }}</p>
 	</div>
 	{% cycle 'close rows' : nil, nil, '</div><!-- /.row -->' %}
-{% endfor %}	
-{% if paginator.total_pages > 1 %}
-<!-- Pagination -->
-<div class="row text-center">
-	<div class="col-lg-12">
-		{% if paginator.total_pages > 1 %}
-		<!-- Pager -->
-		<ul class="pagination">
-			{% if paginator.previous_page %}
-			<li>
-				<a href="{{ paginator.previous_page_path | replace: '//','/' }}">&larr;</a>
-			</li>
-			{% else %}
-			<li class="disabled">
-				<a href="#">&larr;</a>
-			</li>
-			{% endif %}
-			
-			{% for pages in (1..paginator.total_pages) %}
-				{% if pages > 1 %}{% assign pageurltemplate = page.baseurl | append: page.paginate.permalink%}
-				{% else %}{% assign pageurltemplate = page.baseurl %}{% endif %}
-			<li class="{% if pages == paginator.page %}active{% endif %}">
-				<a href="{{ pageurltemplate | replace: ':num',pages | replace: '//','/' }}">{{ pages }}</a>
-			</li>
-			{% endfor %}
-			
-			{% if paginator.next_page %}
-			<li>
-				<a href="{{ paginator.next_page_path | replace: '//','/' }}">&rarr;</a>
-			</li>
-			{% else %}
-			<li class="disabled">
-				<a href="#">&rarr;</a>
-			</li>
-			{% endif %}
-		</ul>
-		{% endif %}
-	</div>
-</div>
-{% endif %}
-<!-- /.row -->
+{% endfor %}

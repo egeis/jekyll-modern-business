@@ -1,12 +1,11 @@
 ---
 layout: portfolio-index
 title: Projects
-subheading: Four Column
-baseurl: /portfolio-4-col/
-breadcrumb: Projects 4 Col
+subheading: One Column
+breadcrumb: Projects
+baseurl: /portfolio/
 paginate:
   collection: projects
-  per_page: 8
   permalink: "/page:num/"
 ---
 {% for project in paginator.projects %}
@@ -19,11 +18,21 @@ paginate:
 	{% assign frontimagesrc = 'http://placehold.it/700x300' %}
 	{% assign frontimagealt = 'Placeholder Image from placehold.it' %}			
 	{% endif %}
-    {% cycle 'add rows' : '<!-- Projects Row --><div class="row">', nil , nil, nil  %}
-	<div class="col-md-3 img-portfolio">
+<!-- Project -->
+<div class="row">
+	<div class="col-md-7">
 		<a href="{{ project.url | prepend: site.url }}">
 			<img class="img-responsive img-hover" src="{{frontimagesrc}}" alt="{{frontimagealt}}">
 		</a>
 	</div>
-	{% cycle 'close rows' : nil, nil, nil, '</div><!-- /.row -->' %}
+	<div class="col-md-5">
+		<h3>{{ project.title | escape }}</h3>
+		{% if project.subheading %}<h4>{{project.subheading | escape}}</h4>{% endif %}
+		<p>{{ project.excerpt | markdownify }}</p>
+		<a class="btn btn-primary" href="{{ project.url | prepend: site.url }}">View Project</i></a>
+	</div>
+</div>
+
+<hr />
+<!-- /.row -->
 {% endfor %}
