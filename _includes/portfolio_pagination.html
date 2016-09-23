@@ -16,10 +16,10 @@
 			{% endif %}
 			
 			{% for pages in (1..paginator.total_pages) %}
-				{% if pages > 1 %}{% assign pageurltemplate = page.baseurl | remove: "index.html" | append: page.paginate.permalink | prepend: site.url %}
+				{% if pages > 1 %}{% assign pageurltemplate = page.baseurl | remove: "index.html" | append: page.paginate.permalink %}
 				{% else %}{% assign pageurltemplate = page.baseurl | remove: "index.html" %}{% endif %}
 			<li class="{% if pages == paginator.page %}active{% endif %}">
-				<a href="{{ pageurltemplate | replace: ':num',pages | replace: '//','/' }}">{{ pages }}</a>
+				<a href="{{ pageurltemplate | replace: ':num',pages | replace: '//','/' | prepend: site.url }}">{{ pages }}</a>
 			</li>
 			{% endfor %}
 			
