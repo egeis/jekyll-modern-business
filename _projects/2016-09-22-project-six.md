@@ -1,8 +1,7 @@
 ---
 layout: project 
-title: Project Four
+title: Project Six
 subheading: The fourth be with you.
-breadcrumb: Project Four
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it

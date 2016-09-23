@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+    {% include navigation.html %}
+    <!-- Page Content -->
+    <div class="container">
+       {% include breadcrumbs.html %}
+	   {{ content }}
+	   <hr>
+       {% include footer.html %}
+	   {% include scripts.html %}
+    </div>
+    <!-- /.container -->
+</body>
+</html>

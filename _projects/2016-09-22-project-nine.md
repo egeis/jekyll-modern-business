@@ -1,6 +1,6 @@
 ---
 layout: project 
-title: Project Three
+title: Project Nine
 subheading: The Return of the Project!
 carousel:
  - src: http://placehold.it/750x500

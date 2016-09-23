@@ -16,16 +16,21 @@
 					{% capture current_breadcrumb_md_url %}{{next_prepender}}/{{ splitted_url_parts[i] }}/{% endcapture %}
 					{% capture next_prepender %}{{next_prepender}}/{{ splitted_url_parts[i] }}{% endcapture %}
 					{% for breadcrumb_page in site.pages %}
-						{% if current_breadcrumb_url == breadcrumb_page.url or current_breadcrumb_md_url == breadcrumb_page.url  %}
-						{% assign j = forLoopMaxInt | plus: 0 %}
-							<li {% if i == j %}class="active"{% endif %}>
-								{% capture breadcrumb_page_page_url_without_index_html %}{{ breadcrumb_page.url | remove: "index.html" }}{% endcapture %}
-								<a href="{{ site.url }}{{breadcrumb_page_page_url_without_index_html}}">{{breadcrumb_page.breadcrumb}}</a>
-							</li>
+
+						{% if current_breadcrumb_url == breadcrumb_page.url or
+							  current_breadcrumb_md_url == breadcrumb_page.url %}
+							{% capture breadcrumb_page_page_url_without_index_html %}{{ breadcrumb_page.url | remove: "index.html" }}{% endcapture %}
+								{% assign j = forLoopMaxInt | plus: 0 %}
+								{% assign label = breadcrumb_page.breadcrumb %}
+								{% if i == j %}
+								<li class="active">{{ label }}</li>
+								{% else %}
+								<li ><a href="{{ site.url }}{{breadcrumb_page_page_url_without_index_html}}">{{ label }}</a></li>
+								{% endif %}
 						{% endif %}
 					{% endfor %}
 				{% endfor %}
-				</ol>
+    </ol>
             </div>
         </div>
         <!-- /.row -->

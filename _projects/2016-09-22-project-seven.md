@@ -1,8 +1,7 @@
 ---
 layout: project 
-title: Project One
+title: Project Seven
 subheading: A new hope!
-breadcrumb: Project One
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it
