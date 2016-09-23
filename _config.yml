@@ -39,7 +39,7 @@ enable_mailto: true
 # Collection definitions and settings
 collections:
   posts:
-    permalink: /blog/:year/:month/:day/:title/
+    permalink: /blog/:categories/:title.html
     output: true
   projects:
     output: true

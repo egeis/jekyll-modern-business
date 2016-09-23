@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://egeis.github.io/jekyll-modern-business/blog/2015/03/04/blog-post-four/</loc>
+<loc>https://egeis.github.io/jekyll-modern-business/blog/programming/blog-post-five.html</loc>
+<lastmod>2016-09-20T18:00:00-07:00</lastmod>
+</url>
+<url>
+<loc>https://egeis.github.io/jekyll-modern-business/blog/general/blog-post-four.html</loc>
 <lastmod>2015-03-04T00:00:00-08:00</lastmod>
 </url>
 <url>
-<loc>https://egeis.github.io/jekyll-modern-business/blog/2015/03/03/blog-post-three/</loc>
+<loc>https://egeis.github.io/jekyll-modern-business/blog/default/blog-post-three.html</loc>
 <lastmod>2015-03-03T00:00:00-08:00</lastmod>
 </url>
 <url>
-<loc>https://egeis.github.io/jekyll-modern-business/blog/2015/03/02/blog-post-two/</loc>
+<loc>https://egeis.github.io/jekyll-modern-business/blog/programming/blog-post-two.html</loc>
 <lastmod>2015-03-02T00:00:00-08:00</lastmod>
 </url>
 <url>
-<loc>https://egeis.github.io/jekyll-modern-business/blog/2015/03/01/blog-post-one/</loc>
+<loc>https://egeis.github.io/jekyll-modern-business/blog/general/blog-post-one.html</loc>
 <lastmod>2015-03-01T00:00:00-08:00</lastmod>
 </url>
 <url>
