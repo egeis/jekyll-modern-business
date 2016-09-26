@@ -6,9 +6,7 @@
     <!-- Page Content -->
     <div class="container">
        {% include breadcrumbs.html %}
-	   {% if header_imagesrc %}
-	   {% include image-header.html %}
-	   {% endif %}
+	   {% if page.header_imagesrc %}{% include image-header.html %}{% endif %}
 	   {{ content }}
 	   <hr>
        {% include footer.html %}
