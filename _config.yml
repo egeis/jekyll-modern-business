@@ -8,6 +8,12 @@ description: >
 baseurl: "" 
 url: "http://localhost:4000" 
 
+organization: 'Your Organization'
+
+# Theme Settings
+blog-index-style: '1'
+portfolio-index-style: '1'
+
 # permalinks
 permalink: pretty
 
@@ -50,17 +56,18 @@ collections:
 
 # File structure settings
 
+
 # Defaults
-defaults:
-  - scope: 
-      path: "/blog/"
-      type: "posts"
-  - values:
-      frontimagesrc: 'http://placehold.it/900x300' 
-      frontimagealt: 'Placeholder Image from placehold.it' 
-  - scope:
-      path: "/portfolio/"
-      type: "projects"
-  - values:
-       frontimagesrc: 'http://placehold.it/700x300'
-       frontimagealt: 'Placeholder Image from placehold.it'
+# defaults:
+  # - scope: 
+      # path: "/blog/"
+      # type: "posts"
+  # - values:
+      # frontimagesrc: 'http://placehold.it/900x300' 
+      # frontimagealt: 'Placeholder Image from placehold.it' 
+  # - scope:
+      # path: "/portfolio/"
+      # type: "projects"
+  # - values:
+       # frontimagesrc: 'http://placehold.it/700x300'
+       # frontimagealt: 'Placeholder Image from placehold.it'

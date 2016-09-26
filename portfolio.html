@@ -1,5 +1,5 @@
 ---
-layout: portfolio-index
+layout: page
 title: Projects
 subheading: One Column
 breadcrumb: Projects
@@ -8,31 +8,26 @@ paginate:
   collection: projects
   permalink: "/page:num/"
 ---
-{% for project in paginator.projects %}
-	{% if post.author == blank %}
-	{% assign post.author = site.author %}
-	{% endif %}
-	{% assign frontimagesrc = post.frontimagesrc %}
-	{% assign frontimagealt = post.frontimagealt %}
-	{% if post.frontimagesrc == null %}
-	{% assign frontimagesrc = 'http://placehold.it/700x300' %}
-	{% assign frontimagealt = 'Placeholder Image from placehold.it' %}			
-	{% endif %}
-<!-- Project -->
+{% strip %}
+{% if site.portfolio-index-style == '1' %}
+	{% include portfolio/index-style-1.html %}
+{% elsif site.portfolio-index-style == '2'%}
+	{% include portfolio/index-style-2.html %}
+{% elsif site.portfolio-index-style == '3'%}
+	{% include portfolio/index-style-3.html %}
+{% elsif site.portfolio-index-style == '4'%}
+	{% include portfolio/index-style-4.html %}
+{% else %}
 <div class="row">
-	<div class="col-md-7">
-		<a href="{{ project.url | prepend: site.url }}">
-			<img class="img-responsive img-hover" src="{{frontimagesrc}}" alt="{{frontimagealt}}">
-		</a>
+	<div class="col-lg-12">
+		<h2 class="page-header">Select a theme.</h2>
+		<p>Assign 'blog-index-style' to your config and give it a value. The following list are supported selections:</p>
+		<ul>
+			<li><b>1</b> for style 1 from the original bootsrape theme.</li>
+			<li><b>2</b> for style 2 from the original bootsrape theme.</li>
+		</ul>
+		<p>For example <pre>blog-index-style: '1'</pre></p>
 	</div>
-	<div class="col-md-5">
-		<h3>{{ project.title | escape }}</h3>
-		{% if project.subheading %}<h4>{{project.subheading | escape}}</h4>{% endif %}
-		<p>{{ project.excerpt | markdownify }}</p>
-		<a class="btn btn-primary" href="{{ project.url | prepend: site.url }}">View Project</i></a>
-	</div>
-</div>
-
-<hr />
-<!-- /.row -->
-{% endfor %}
+</div>	
+{% endif %}
+{% endstrip %}
