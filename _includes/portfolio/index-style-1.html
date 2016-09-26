@@ -1,0 +1,15 @@
+{% for project in paginator.projects %}	
+<div class="row">
+	<div class="col-md-7">
+		<a href="{{ project.url | prepend: site.url }}">
+			<img class="img-responsive img-hover" src="{{ project.frontimagesrc }}" alt="{{ project.frontimagealt }}">
+		</a>
+	</div>
+	<div class="col-md-5">
+		<h3>{{ project.title }}</h3>
+		{% if project.subheading %}<h4>{{project.subheading}}</h4>{% endif %}
+		<p>{{ project.excerpt | markdownify }}</p>
+		<a class="btn btn-primary" href="{{ project.url | prepend: site.url }}">View Project</i></a>
+	</div>
+</div>
+{% endfor %}

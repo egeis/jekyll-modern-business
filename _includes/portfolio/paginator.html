@@ -1,5 +1,5 @@
 {% if paginator.total_pages > 1 %}
-<hr>
+<hr />
 <!-- Pagination -->
 <div class="row text-center">
 	<div class="col-lg-12">
@@ -15,7 +15,6 @@
 				<a href="#">&larr;</a>
 			</li>
 			{% endif %}
-			
 			{% for pages in (1..paginator.total_pages) %}
 				{% if pages > 1 %}{% assign pageurltemplate = page.baseurl | remove: "index.html" | append: page.paginate.permalink %}
 				{% else %}{% assign pageurltemplate = page.baseurl | remove: "index.html" %}{% endif %}
@@ -23,7 +22,6 @@
 				<a href="{{ pageurltemplate | replace: ':num',pages | replace: '//','/' | prepend: site.url }}">{{ pages }}</a>
 			</li>
 			{% endfor %}
-			
 			{% if paginator.next_page %}
 			<li>
 				<a href="{{ paginator.next_page_path | replace: '//','/' }}">&rarr;</a>
@@ -37,5 +35,5 @@
 		{% endif %}
 	</div>
 </div>
-{% endif %}
 <!-- /.row -->  
+{% endif %}
