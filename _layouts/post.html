@@ -3,35 +3,20 @@ layout: blog
 title: <% post.title %>
 subheading: <% post.subheading %>
 ---
-{% strip %}
-{% if post.author == blank %}
-{% assign post.author = site.author %}
-{% endif %}
-{% assign frontimagesrc = post.frontimagesrc %}
-{% assign frontimagealt = post.frontimagealt %}
-{% if post.frontimagesrc == null %}
-{% assign frontimagesrc = 'http://placehold.it/900x300' %}
-{% assign frontimagealt = 'Placeholder Image from placehold.it' %}			
-{% endif %}
-{% endstrip %}
 <div class="row">
 
 	<!-- Blog Post Content Column -->
 	<div class="col-lg-8">
-
-		<!-- Blog Post -->
-
 		<hr>
-
 		<!-- Date/Time -->
 		<p><i class="fa fa-clock-o"></i> Posted on {{ page.date | date: '%B %d, %Y' }}</p>
-
 		<hr>
-
+		
+		{% if page.frontimagesrc %}
 		<!-- Preview Image -->
-		<img class="img-responsive" src="{{frontimagesrc}}" alt="{{frontimagealt}}">
-
+		<img class="img-responsive" src="{{ page.frontimagesrc }}" alt="{{ page.frontimagealt }}">
 		<hr>
+		{% endif %}
 
 		<!-- Post Content -->
 		{{content}}
