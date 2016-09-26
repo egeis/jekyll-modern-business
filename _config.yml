@@ -20,6 +20,7 @@ permalink: pretty
 # Build settings
 markdown: kramdown
 gems:
+  - jekyll-archives
   - jekyll-feed
   - jekyll-sitemap
   - octopress-paginate
@@ -29,7 +30,6 @@ exclude:
   - README.md
   - LICENSE
 incremental: true
-destination: docs/
 
 #Pagination Settings
 pagination:
