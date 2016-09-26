@@ -1,9 +1,13 @@
 ---
 layout: post
 title: Blog Post Number Four
-author: Your Name
-tags: [lorem-ipsum, github, jekyll]
-category: general 
+author: Bob Someone
+tags: 
+- lorem-ipsum
+- github
+- jekyll
+category: 
+- general 
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.
@@ -13,4 +17,3 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolore
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!
-

@@ -2,7 +2,9 @@
 layout: post
 title: Blog Post One
 author: Your Name
-tags: [lorem-ipsum, jekyll]
+tags: 
+- lorem-ipsum
+- jekyll
 category: general 
 ---
 
