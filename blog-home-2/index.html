@@ -7,15 +7,6 @@ paginate:
   permalink: /page:num/
 ---
 {% for post in paginator.posts %}
-	{% if post.author == blank %}
-	{% assign post.author = site.author %}
-	{% endif %}
-	{% assign frontimagesrc = post.frontimagesrc |  %}
-	{% assign frontimagealt = post.frontimagealt %}
-	{% if post.frontimagesrc == null %}
-	{% assign frontimagesrc = 'http://placehold.it/900x300' %}
-	{% assign frontimagealt = 'Placeholder Image from placehold.it' %}	
-	{% endif %}
 <!-- Blog Post Row -->
 <div class="row">
 	<div class="col-md-1 text-center">
@@ -24,7 +15,7 @@ paginate:
 	</div>
 	<div class="col-md-5">
 		<a href="{{ post.url | prepend: site.url }}">
-			<img class="img-responsive img-hover" src="{{frontimagesrc}}" alt="{{frontimagealt}}">
+			<img class="img-responsive img-hover" src="{{ page.frontimagesrc }}" alt="{{ page.frontimagealt }}">
 		</a>
 	</div>
 	<div class="col-md-6">

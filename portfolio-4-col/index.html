@@ -22,7 +22,7 @@ paginate:
     {% cycle 'add rows' : '<!-- Projects Row --><div class="row">', nil , nil, nil  %}
 	<div class="col-md-3 img-portfolio">
 		<a href="{{ project.url | prepend: site.url }}">
-			<img class="img-responsive img-hover" src="{{frontimagesrc}}" alt="{{frontimagealt}}">
+			<img class="img-responsive img-hover" src="{{ page.frontimagesrc }}" alt="{{ page.frontimagealt }}">
 		</a>
 	</div>
 	{% cycle 'close rows' : nil, nil, nil, '</div><!-- /.row -->' %}

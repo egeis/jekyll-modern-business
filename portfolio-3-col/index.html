@@ -10,19 +10,10 @@ paginate:
   permalink: "/page:num/"
 ---
 {% for project in paginator.projects %}
-	{% if post.author == blank %}
-	{% assign post.author = site.author %}
-	{% endif %}
-	{% assign frontimagesrc = post.frontimagesrc %}
-	{% assign frontimagealt = post.frontimagealt %}
-	{% if post.frontimagesrc == null %}
-	{% assign frontimagesrc = 'http://placehold.it/700x300' %}
-	{% assign frontimagealt = 'Placeholder Image from placehold.it' %}			
-	{% endif %}
     {% cycle 'add rows' : '<!-- Projects Row --><div class="row">', nil , nil  %}
 	<div class="col-md-4 img-portfolio">
 		<a href="{{ project.url | prepend: site.url }}">
-			<img class="img-responsive img-hover" src="{{frontimagesrc}}" alt="{{frontimagealt}}">
+			<img class="img-responsive img-hover" src="{{ page.frontimagesrc }}" alt="{{ page.frontimagealt }}">
 		</a>
 		<h3>
 			<a href="{{ project.url | prepend: site.url }}">{{ project.title | escape }}</a>

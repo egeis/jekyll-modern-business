@@ -30,7 +30,7 @@ GEM
     mercenary (0.3.6)
     octopress-hooks (2.6.2)
       jekyll (>= 2.0)
-    octopress-paginate (1.1.2)
+    octopress-paginate (1.2.0)
       octopress-hooks
     pathutil (0.14.0)
       forwardable-extended (~> 2.6)

@@ -10,16 +10,7 @@ paginate:
  <div class="row">
 	<!-- Blog Entries Column -->
 	<div class="col-md-8">
-		{% for post in paginator.posts %}
-			{% if post.author == blank %}
-			{% assign post.author = site.author %}
-			{% endif %}
-			{% assign frontimagesrc = post.frontimagesrc %}
-			{% assign frontimagealt = post.frontimagealt %}
-			{% if post.frontimagesrc == null %}
-			{% assign frontimagesrc = 'http://placehold.it/900x300' %}
-			{% assign frontimagealt = 'Placeholder Image from placehold.it' %}			
-			{% endif %}
+		{% for post in paginator.posts %}		
 		<!-- Blog Post -->
 		<h2>
 			<a href="{{ post.url | prepend: site.url }}">{{ post.title | escape }}</a>
@@ -30,7 +21,7 @@ paginate:
 		<p><i class="fa fa-clock-o"></i> Posted on {{ post.date | date: "%b %-d, %Y" }}</p>
 		<hr>
 		<a href="blog-post.html">
-			<img class="img-responsive img-hover" src="{{frontimagesrc}}" alt="{{frontimagealt}}">
+			<img class="img-responsive img-hover" src="{{ page.frontimagesrc }}" alt="{{ page.frontimagealt }}">
 		</a>
 		<hr>
 		<p>{{ post.excerpt | markdownify }}</p>
