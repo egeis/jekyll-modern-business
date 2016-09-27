@@ -66,3 +66,19 @@ collections:
    projects:
      output: true
      permalink: /portfolio/:path/
+
+# Octopress settings
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+post_layout: post
+page_layout: full-page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft	 

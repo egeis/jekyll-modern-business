@@ -4,6 +4,10 @@ title: Projects
 subheading: One Column
 breadcrumb: Projects
 baseurl: /portfolio/
+paginate:
+  collection: projects
+  permalink: /page:num/
+  per_page: 4
 ---
 {% if site.modern.portfolio-index-style == '1' %}
 	{% include portfolio/index-style-1.html %}
@@ -26,3 +30,4 @@ baseurl: /portfolio/
 	</div>
 </div>	
 {% endif %}
+{% include portfolio/paginator.html %}
