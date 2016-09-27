@@ -14,7 +14,7 @@ subheading: <% post.subheading %>
 		
 		{% if page.frontimagesrc %}
 		<!-- Preview Image -->
-		<img class="img-responsive" src="{{ page.frontimagesrc }}" alt="{{ page.frontimagealt }}">
+		<img class="img-responsive" src="{{ page.frontimagesrc | default: site.modern.defaults.blog.frontimagesrc }}" alt="{{ page.frontimagealt }}">
 		<hr>
 		{% endif %}
 
