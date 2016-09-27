@@ -1,15 +1,18 @@
-{% if site.blog-index-style == '1' %}
+{{ site.modern.blog-index-style }}
+{% if site.modern.blog-index-style == '1' %}
 <div class="row">
-	<!-- Blog Entries Column -->
+	<!-- Blog Entries Column - Style 1 -->
 	<div class="col-md-8">
 		{% for post in paginator.posts %}
+		<!-- Blog Entry -->
 		{% include blog/index-style-1.html %}
 		{% endfor %}
 		{% include blog/paginator.html %}
 	</div>
 	{% include blog/sidebar.html %}
 </div>
-{% elsif site.blog-index-style == '2' %}
+{% elsif site.modern.blog-index-style == '2' %}
+		<!-- Blog Entries Column - Style 2 -->
 		{% for post in paginator.posts %}
 		{% include blog/index-style-2.html %}
 		{% endfor %}

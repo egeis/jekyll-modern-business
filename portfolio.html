@@ -4,18 +4,14 @@ title: Projects
 subheading: One Column
 breadcrumb: Projects
 baseurl: /portfolio/
-paginate:
-  collection: projects
-  permalink: "/page:num/"
 ---
-{% strip %}
-{% if site.portfolio-index-style == '1' %}
+{% if site.modern.portfolio-index-style == '1' %}
 	{% include portfolio/index-style-1.html %}
-{% elsif site.portfolio-index-style == '2'%}
+{% elsif site.modern.portfolio-index-style == '2'%}
 	{% include portfolio/index-style-2.html %}
-{% elsif site.portfolio-index-style == '3'%}
+{% elsif site.modern.portfolio-index-style == '3'%}
 	{% include portfolio/index-style-3.html %}
-{% elsif site.portfolio-index-style == '4'%}
+{% elsif site.modern.portfolio-index-style == '4'%}
 	{% include portfolio/index-style-4.html %}
 {% else %}
 <div class="row">
@@ -30,4 +26,3 @@ paginate:
 	</div>
 </div>	
 {% endif %}
-{% endstrip %}
