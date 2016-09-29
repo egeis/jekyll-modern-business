@@ -20,7 +20,7 @@ modern:
     portfolio:
       frontimagesrc: 'http://placehold.it/700x300'
 
-	  # Markdown Settings
+# Markdown Settings
 markdown: kramdown
 kramdown:
    input: GFM

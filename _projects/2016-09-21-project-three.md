@@ -2,6 +2,10 @@
 layout: project 
 title: Project Three
 subheading: The Return of the Project!
+tags: 
+- lorem-ipsum
+- github
+- jekyll
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it

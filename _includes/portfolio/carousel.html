@@ -1,0 +1,39 @@
+{% assign counter = 0 %}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		{% if page.video %}
+		{% assign counter = counter | plus: 1 %}
+		<li data-target="#myCarousel" data-slide-to="{{ counter }}" class="active"></li>
+		{% endif %}
+		{% for image in page.carousel %}
+		<li data-target="#myCarousel" data-slide-to="{{ forloop.index | plus: counter  }}" {% if forloop.first and counter  == 0 %}class="active"{% endif %}></li>
+		{% endfor %}
+	</ol>
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner">
+		{% if page.video %}
+		<div class="item active">
+			<div class="background">
+			<iframe width="750px" height="500px" id="player" src="https://www.youtube.com/embed/{{page.video}}?rel=0&amp;showinfo=0&amp;&amp;autohide=1&amp;autoplay=0&amp;controls=0&amp;version=3&amp;enablejsapi=1" frameborder="0" style="width: 100%;top: 5px;margin-bottom: -5px" allowfullscreen></iframe>
+			</div>
+		</div>
+		{% endif %}
+		{% for image in page.carousel %}
+		<div class="item {% if forloop.first and counter  == 0 %}active{% endif %}">
+			<img class="img-responsive" src="{{image.src}}"{% if image.alt %} alt="{{img.alt}}"{% endif %} />
+			<div class="carousel-caption">
+				<h2>{{ image.title }}</h2>
+				<p>{{ image.caption }}</p>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<!-- Controls -->
+	<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		<span class="icon-prev"></span>
+	</a>
+	<a class="right carousel-control" href="#myCarousel" data-slide="next">
+		<span class="icon-next"></span>
+	</a>
+</div>

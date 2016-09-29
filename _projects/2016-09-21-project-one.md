@@ -3,6 +3,11 @@ layout: project
 title: Project One
 subheading: A new hope!
 breadcrumb: Project One
+tags: 
+- lorem-ipsum
+- github
+- jekyll
+video: 8aWB7bh9Q3k
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it

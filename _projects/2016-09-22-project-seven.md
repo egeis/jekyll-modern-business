@@ -2,6 +2,8 @@
 layout: project 
 title: Project Seven
 subheading: A new hope!
+tags: 
+- jekyll
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it
