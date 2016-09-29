@@ -1,0 +1,46 @@
+{% assign maxRelated = 4 %}
+{% assign minCommonTags =  2 %}
+{% assign maxRelatedCounter = 0 %}
+{% assign relatedProjectsMarkup = "" %}
+
+  {% for project in site.projects %}
+
+    {% assign sameTagCount = 0 %}
+    {% assign commonTags = '' %}
+
+    {% for tag in project.tags %}
+      {% if project.url != page.url %}
+        {% if page.tags contains tag %}
+          {% assign sameTagCount = sameTagCount | plus: 1 %}
+          {% capture tagmarkup %} <span class="label label-default">{{ tag }}</span> {% endcapture %}
+          {% assign commonTags = commonTags | append: tagmarkup %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if sameTagCount >= minCommonTags %}
+{% capture newProject%}
+<div class="col-sm-3 col-xs-6">
+	<a href="{{ project.url | prepend: site.baseurl | prepend: site.url }}">
+		<img class="img-responsive img-hover img-related" src="{{ project.frontimagesrc | default: site.modern.defaults.portfolio.frontimagesrc }}" alt="{{project.frontimagealt}}">
+	</a>
+</div>     
+{% endcapture %}
+	  {% assign relatedProjectsMarkup = relatedProjectsMarkup | append: newProject %}
+      {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+      {% if maxRelatedCounter >= maxRelated %}
+        {% break %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% if maxRelatedCounter > 0 %}  
+<!-- Related Projects Row -->
+<div class="row">
+
+	<div class="col-lg-12">
+		<h3 class="page-header">Related Projects</h3>
+		{{ relatedProjectsMarkup }}
+	</div>
+</div>
+<!-- /.row -->
+{% endif %}

@@ -1,0 +1,13 @@
+{% for project in paginator.projects %}	
+{% cycle 'add rows' : '<!-- Projects Row --><div class="row">', nil %}
+<div class="col-md-6 img-portfolio">
+	<a href="{{ project.url | prepend: site.url }}">
+		<img class="img-responsive img-hover" src="{{ project.frontimagesrc | default: site.modern.defaults.portfolio.frontimagesrc }}" alt="{{ project.frontimagealt }}">
+	</a>
+	<h3>
+		<a href="{{ project.url | prepend: site.url }}">{{ project.title | escape }}</a>
+	</h3>
+	<p>{{ project.excerpt | markdownify }}</p>
+</div>
+{% cycle 'close rows' : nil, '</div><!-- /.row -->' %}
+{% endfor %}

@@ -3,7 +3,7 @@
 <header id="myCarousel" class="carousel slide">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
-		{% for image in page.carousel %}
+		{% for image in page.carousel- %}
 		<li data-target="#myCarousel" data-slide-to="{{ forloop.index }}"{% if forloop.first %} class="active"{% endif %}></li>
 		{% endfor %}
 	</ol>

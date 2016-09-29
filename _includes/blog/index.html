@@ -1,0 +1,31 @@
+{% if site.modern.blog-index-style == '1' %}
+<div class="row">
+	<!-- Blog Entries Column - Style 1 -->
+	<div class="col-md-8">
+		{% for post in paginator.posts %}
+		<!-- Blog Entry -->
+		{% include blog/index-style-1.html %}
+		{% endfor %}
+		{% include blog/paginator.html %}
+	</div>
+	{% include blog/sidebar.html %}
+</div>
+{% elsif site.modern.blog-index-style == '2' %}
+		<!-- Blog Entries Column - Style 2 -->
+		{% for post in paginator.posts %}
+		{% include blog/index-style-2.html %}
+		{% endfor %}
+		{% include blog/paginator.html %}
+{% else %}
+<div class="row">
+	<div class="col-lg-12">
+		<h2 class="page-header">Select a theme.</h2>
+		<p>Assign 'blog-index-style' to your config and give it a value. The following list are supported selections:</p>
+		<ul>
+			<li><b>1</b> for style 1 from the original bootsrape theme.</li>
+			<li><b>2</b> for style 2 from the original bootsrape theme.</li>
+		</ul>
+		<p>For example <pre>blog-index-style: '1'</pre></p>
+	</div>
+</div>
+{% endif %}

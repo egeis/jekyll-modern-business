@@ -1,4 +1,4 @@
-  # Site settings
+# Site settings
 title: Your awesome title
 email: your-email@domain.com
 description: >
@@ -7,60 +7,77 @@ description: >
   Google search results) and in your feed.xml site description.
 baseurl: "" 
 url: "http://localhost:4000" 
+repository: 'egeis/jekyll-modern-business'
 
-# permalinks
-permalink: pretty
+# Theme Settings
+modern:
+  blog-index-style: '1'
+  portfolio-index-style: '1'
+  organization: 'Your Organization'
+  defaults: 
+    blog:
+      frontimagesrc: 'http://placehold.it/900x300' 
+    portfolio:
+      frontimagesrc: 'http://placehold.it/700x300'
 
-# Build settings
+# Markdown Settings
 markdown: kramdown
+kramdown:
+   input: GFM
+   hard_wrap: false
+highlighter: rouge
+
+# Outputting
+permalink: /:categories/:title/
+
+# Build Settings
 gems:
   - jekyll-feed
   - jekyll-sitemap
+  - octopress  
   - octopress-paginate
+whitelist:
+  - jekyll-feed
+  - jekyll-sitemap
+  - octopress
+  - octopress-paginate
+include:
+  - .htaccess
+  - _pages
 exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - LICENSE
-incremental: true
-destination: docs/
+  - LICENSE.md
+  - CHANGELOG.md
+  - .sass-cache
+  - .asset-cache
+  - .bundle
+  - vendor
+  - log
+encoding: "utf-8"
 
-#Pagination Settings
-pagination:
-    limit:          false
-    per_page:       3
-
-#Social Media & Contect Settings
-twitter_username: jekyllrb
-github_username:  jekyll
-linkedin_username: example
-enable_mailto: true
-  
-# Collection definitions and settings
+# Collection Settings
 collections:
-  posts:
-    permalink: /blog/:categories/:title.html
-    output: true
-  projects:
-    output: true
-    permalink: /portfolio/:path/
-  tags:
-    output: true
-    permalink: /:collection/:name/
+   posts:
+     permalink: /blog/:categories/:title.html
+     output: true
+   projects:
+     output: true
+     permalink: /portfolio/:path/
 
-# File structure settings
+# Octopress settings
+post_ext: md
+page_ext: html
 
-# Defaults
-defaults:
-  - scope: 
-      path: "/blog/"
-      type: "posts"
-  - values:
-      frontimagesrc: 'http://placehold.it/900x300' 
-      frontimagealt: 'Placeholder Image from placehold.it' 
-  - scope:
-      path: "/portfolio/"
-      type: "projects"
-  - values:
-       frontimagesrc: 'http://placehold.it/700x300'
-       frontimagealt: 'Placeholder Image from placehold.it'
+# Default templates for posts and pages
+post_layout: post
+page_layout: full-page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft	 

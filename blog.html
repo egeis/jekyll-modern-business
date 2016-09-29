@@ -1,58 +1,10 @@
 ---
 layout: blog
 title: Blog 
-subheading: Style One
+subheading: Writting with Style
 breadcrumb: Blog
 paginate:
-  collection: posts
-  permalink: /page:num/
+    collection: posts
+    per_page: 4
 ---
- <div class="row">
-	<!-- Blog Entries Column -->
-	<div class="col-md-8">
-		{% for post in paginator.posts %}		
-		<!-- Blog Post -->
-		<h2>
-			<a href="{{ post.url | prepend: site.url }}">{{ post.title | escape }}</a>
-		</h2>
-		<p class="lead">
-			by <a href="#" class="disabled">{{ post.author }}</a>
-		</p>
-		<p><i class="fa fa-clock-o"></i> Posted on {{ post.date | date: "%b %-d, %Y" }}</p>
-		<hr>
-		<a href="blog-post.html">
-			<img class="img-responsive img-hover" src="{{ page.frontimagesrc }}" alt="{{ page.frontimagealt }}">
-		</a>
-		<hr>
-		<p>{{ post.excerpt | markdownify }}</p>
-		<a class="btn btn-primary" href="{{ post.url | prepend: site.url }}">Read More <i class="fa fa-angle-right"></i></a>
-
-		<hr>
-		{% endfor %}
-		{% if paginator.total_pages > 1 %}
-		<!-- Pager -->
-		<ul class="pager">
-			{% if paginator.previous_page %}
-			<li class="previous">
-				<a href="{{ paginator.previous_page_path | replace: '//', '/' | prepend: site.url }}">&larr; Newer</a>
-			</li>
-			{% else %}
-			<li class="previous disabled">
-				<a href="#">&larr; Older</a>
-			</li>
-			{% endif %}
-			
-			{% if paginator.next_page %}
-			<li class="next">
-				<a href="{{ paginator.next_page_path | replace: '//', '/' | prepend: site.url }}">Older &rarr;</a>
-			</li>
-			{% else %}
-			<li class="next disabled">
-				<a href="#">Newer &rarr;</a>
-			</li>
-			{% endif %}
-		</ul>
-		{% endif %}
-	</div>
-	{% include blog-sidebar.html %}
-</div>
+{% include blog/index.html %}

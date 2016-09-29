@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+    {% include navigation.html %}
+    <!-- Page Content -->
+    <div class="container">
+       {% include breadcrumbs.html %}
+	   {% if page.header_imagesrc %}{% include image-header.html %}{% endif %}
+	   {{ content }}
+	   <hr>
+       {% include footer.html %}
+	   {% include scripts.html %}
+    </div>
+    <!-- /.container -->
+</body>
+</html>

@@ -1,2 +1,3 @@
-baseurl: "" 
-url: "https://egeis.github.io/jekyll-modern-business"
+baseurl: "/jekyll-modern-business/" 
+url: "https://egeis.github.io"
+destination: docs/

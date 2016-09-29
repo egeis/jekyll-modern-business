@@ -1,0 +1,39 @@
+{% if paginator.total_pages > 1 %}
+<hr />
+<!-- Pagination -->
+<div class="row text-center">
+	<div class="col-lg-12">
+		{% if paginator.total_pages > 1 %}
+		<!-- Pager -->
+		<ul class="pagination">
+			{% if paginator.previous_page %}
+			<li>
+				<a href="{{ paginator.previous_page_path | replace: '//','/' }}">&larr;</a>
+			</li>
+			{% else %}
+			<li class="disabled">
+				<a href="#">&larr;</a>
+			</li>
+			{% endif %}
+			{% for pages in (1..paginator.total_pages) %}
+				{% if pages > 1 %}{% assign pageurltemplate = page.baseurl | remove: "index.html" | append: page.paginate.permalink %}
+				{% else %}{% assign pageurltemplate = page.baseurl | remove: "index.html" %}{% endif %}
+			<li class="{% if pages == paginator.page %}active{% endif %}">
+				<a href="{{ pageurltemplate | replace: ':num',pages | replace: '//','/' | prepend: site.url }}">{{ pages }}</a>
+			</li>
+			{% endfor %}
+			{% if paginator.next_page %}
+			<li>
+				<a href="{{ paginator.next_page_path | replace: '//','/' }}">&rarr;</a>
+			</li>
+			{% else %}
+			<li class="disabled">
+				<a href="#">&rarr;</a>
+			</li>
+			{% endif %}
+		</ul>
+		{% endif %}
+	</div>
+</div>
+<!-- /.row -->  
+{% endif %}

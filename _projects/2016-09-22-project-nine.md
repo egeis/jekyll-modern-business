@@ -2,6 +2,8 @@
 layout: project 
 title: Project Nine
 subheading: The Return of the Project!
+tags: 
+- jekyll
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it

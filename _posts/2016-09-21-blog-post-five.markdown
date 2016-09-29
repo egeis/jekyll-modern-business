@@ -2,7 +2,9 @@
 layout: post
 title: Blog Post Part Deux
 author: Your Name
-tags: [lorem-ipsum, github]
+tags: 
+- lorem-ipsum
+- github
 category: programming 
 date: 2016-09-21 09:00:00 +8
 ---
