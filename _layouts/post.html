@@ -12,11 +12,9 @@ subheading: <% post.subheading %>
 		<p><i class="fa fa-clock-o"></i> Posted on {{ page.date | date: '%B %d, %Y' }}</p>
 		<hr>
 		
-		{% if page.frontimagesrc %}
 		<!-- Preview Image -->
 		<img class="img-responsive" src="{{ page.frontimagesrc | default: site.modern.defaults.blog.frontimagesrc }}" alt="{{ page.frontimagealt }}">
 		<hr>
-		{% endif %}
 
 		<!-- Post Content -->
 		{{content}}

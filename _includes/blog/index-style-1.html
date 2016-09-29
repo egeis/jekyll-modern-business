@@ -7,7 +7,7 @@
 </p>
 <p><i class="fa fa-clock-o"></i> Posted on {{ post.date | date: "%b %-d, %Y" }}</p>
 <hr>
-<a href="blog-post.html">
+<a href="{{ post.url | prepend: site.url }}">
 	<img class="img-responsive img-hover" src="{{ page.frontimagesrc | default: site.modern.defaults.blog.frontimagesrc  }}" alt="{{ page.frontimagealt }}">
 </a>
 <hr>
