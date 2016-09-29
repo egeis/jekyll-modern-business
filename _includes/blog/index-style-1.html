@@ -8,7 +8,7 @@
 <p><i class="fa fa-clock-o"></i> Posted on {{ post.date | date: "%b %-d, %Y" }}</p>
 <hr>
 <a href="{{ post.url | prepend: url_base }}">
-	<img class="img-responsive img-hover" src="{{ page.frontimagesrc | default: site.modern.defaults.blog.frontimagesrc  | prepend: url_base }}" alt="{{ page.frontimagealt }}">
+	<img class="img-responsive img-hover" src="{{ page.frontimagesrc | default: site.modern.defaults.blog.frontimagesrc }}" alt="{{ page.frontimagealt }}">
 </a>
 <hr>
 <p>{{ post.excerpt | markdownify }}</p>
