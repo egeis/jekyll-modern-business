@@ -21,7 +21,7 @@
 		{% endif %}
 		{% for image in page.carousel %}
 		<div class="item {% if forloop.first and counter  == 0 %}active{% endif %}">
-			<img class="img-responsive" src="{{image.src}}"{% if image.alt %} alt="{{img.alt}}"{% endif %} />
+			<img class="img-responsive" src="{{image.src  | prepend: url_base}}"{% if image.alt %} alt="{{img.alt}}"{% endif %} />
 			<div class="carousel-caption">
 				<h2>{{ image.title }}</h2>
 				<p>{{ image.caption }}</p>

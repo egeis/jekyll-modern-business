@@ -13,7 +13,7 @@
 	<div class="carousel-inner">
 		{% for image in page.carousel %}
 		<div class="item {% if forloop.first %}active{% endif %}">
-			<div class="fill" style="background-image:url('{{image.src}}');"></div>
+			<div class="fill" style="background-image:url('{{ image.src | prepend: url_base }}');"></div>
 			<div class="carousel-caption">
 				<h2>{{ image.title }}</h2>
 				<p>{{ image.caption }}</p>
