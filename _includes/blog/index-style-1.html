@@ -1,18 +1,18 @@
 <!-- Blog Post -->
 <h2>
-	<a href="{{ post.url | prepend: url_base }}">{{ post.title | escape }}</a>
+	<a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
 </h2>
 <p class="lead">
 	by <a href="#" class="disabled">{{ post.author }}</a>
 </p>
 <p><i class="fa fa-clock-o"></i> Posted on {{ post.date | date: "%b %-d, %Y" }}</p>
 <hr>
-<a href="{{ post.url | prepend: url_base }}">
+<a href="{{ post.url | prepend: site.baseurl }}">
 	<img class="img-responsive img-hover" src="{{ page.frontimagesrc | default: site.modern.defaults.blog.frontimagesrc }}" alt="{{ page.frontimagealt }}">
 </a>
 <hr>
 <p>{{ post.excerpt | markdownify }}</p>
-<a class="btn btn-primary" href="{{ post.url | prepend: url_base }}">Read More <i class="fa fa-angle-right"></i></a>
+<a class="btn btn-primary" href="{{ post.url | prepend: site.baseurl }}">Read More <i class="fa fa-angle-right"></i></a>
 
 <hr>
 <!-- End Blog Post -->

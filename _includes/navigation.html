@@ -9,34 +9,34 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="{{ url_base }}/">{{ site.modern.organization}}</a>
+			<a class="navbar-brand" href="{{ '/' | prepend: site.baseurl }}">{{ site.modern.organization}}</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="{{ url_base }}/about/">About</a>
+					<a href="{{ '/about/' | prepend: site.baseurl }}">About</a>
 				</li>
 				<li>
-					<a href="{{ url_base }}/services/">Services</a>
+					<a href="{{ '/services/' | prepend: site.baseurl }}">Services</a>
 				</li>
 				<li>
-					<a href="{{ url_base }}/contact/">Contact</a>
+					<a href="{{ '/contact/' | prepend: site.baseurl }}">Contact</a>
 				</li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="{{ url_base }}/portfolio/">1 Column Portfolio</a>
+							<a href="{{ '/portfolio/' | prepend: site.baseurl }}">1 Column Portfolio</a>
 						</li>
 						<li>
-							<a href="{{ url_base }}/portfolio-2-col/">2 Column Portfolio</a>
+							<a href="{{ '/portfolio-2-col/' | prepend: site.baseurl }}">2 Column Portfolio</a>
 						</li>
 						<li>
-							<a href="{{ url_base }}/portfolio-3-col/">3 Column Portfolio</a>
+							<a href="{{ '/portfolio-3-col/' | prepend: site.baseurl }}">3 Column Portfolio</a>
 						</li>
 						<li>
-							<a href="{{ url_base }}/portfolio-4-col/">4 Column Portfolio</a>
+							<a href="{{ '/portfolio-4-col/' | prepend: site.baseurl }}">4 Column Portfolio</a>
 						</li>
 					</ul>
 				</li>
@@ -44,10 +44,10 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="{{ url_base }}/blog/">Blog Home 1</a>
+							<a href="{{ '/blog/' | prepend: site.baseurl }}">Blog Home 1</a>
 						</li>
 						<li>
-							<a href="{{ url_base }}/blog-style-2/">Blog Home 2</a>
+							<a href="{{ '/blog-style-2/' | prepend: site.baseurl }}">Blog Home 2</a>
 						</li>
 
 					</ul>
@@ -56,16 +56,16 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="{{ url_base }}/sidebar/">Sidebar Page</a>
+							<a href="{{ '/sidebar/' | prepend: site.baseurl }}">Sidebar Page</a>
 						</li>
 						<li>
-							<a href="{{ url_base }}/faq/">FAQ</a>
+							<a href="{{ '/faq/' | prepend: site.baseurl }}">FAQ</a>
 						</li>
 						<li>
-							<a href="{{ url_base }}/404/">404</a>
+							<a href="{{ '/404/' | prepend: site.baseurl }}">404</a>
 						</li>
 						<li>
-							<a href="{{ url_base }}/pricing/">Pricing Table</a>
+							<a href="{{ '/pricing/' | prepend: site.baseurl }}">Pricing Table</a>
 						</li>
 					</ul>
 				</li>

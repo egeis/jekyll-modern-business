@@ -19,7 +19,7 @@
 				{% if pages > 1 %}{% assign pageurltemplate = page.baseurl | remove: "index.html" | append: page.paginate.permalink %}
 				{% else %}{% assign pageurltemplate = page.baseurl | remove: "index.html" %}{% endif %}
 			<li class="{% if pages == paginator.page %}active{% endif %}">
-				<a href="{{ pageurltemplate | replace: ':num',pages | replace: '//','/' | prepend: url_base }}">{{ pages }}</a>
+				<a href="{{ pageurltemplate | replace: ':num',pages | replace: '//','/' | prepend: site.baseurl }}">{{ pages }}</a>
 			</li>
 			{% endfor %}
 			{% if paginator.next_page %}

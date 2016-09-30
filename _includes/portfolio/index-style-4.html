@@ -1,7 +1,7 @@
 {% for project in paginator.projects %}	
 {% cycle 'add rows' : '<!-- Projects Row --><div class="row">', nil , nil, nil  %}
 <div class="col-md-3 img-portfolio">
-	<a href="{{ project.url | prepend: url_base }}">
+	<a href="{{ project.url | prepend: site.baseurl }}">
 		<img class="img-responsive img-hover" src="{{ project.frontimagesrc | default: site.modern.defaults.portfolio.frontimagesrc }}" alt="{{ project.frontimagealt }}">
 	</a>
 </div>

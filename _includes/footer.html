@@ -1,8 +1,20 @@
 <!-- Footer -->
 <footer>
     <div class="row">
-        <div class="col-lg-12">
-			<p>Copyright &copy; {{site.modern.organization}} &ndash; {{ 'now' | date: "%Y" }}</p>
+        <div class="col-md-6">
+            <p>Copyright &copy; {{site.modern.organization}} &ndash; {{ 'now' | date: "%Y" }}</p>
+        </div>
+        <div class="col-md-6">
+            
+            <ul class="list-inline" style="text-align:right">
+                {% for link in site.data.footerlinks %}
+                {% if link.rel == 'external' %}
+                <li class="nav-item"><a class="nav-link" href="{{ link.url }}" rel="{{ link.rel }}">{{ link.text }}</a></li>
+                {% else %}
+				<li class="nav-item"><a class="nav-link" href="{{ link.url | prepend: site.baseurl }}" rel="{{ link.rel }}">{{ link.text }}</a></li>
+                {% endif %}
+                {% endfor %}
+			</ul>
 		</div>   
 	</div>
 </footer>

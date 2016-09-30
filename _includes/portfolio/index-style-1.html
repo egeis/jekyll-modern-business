@@ -1,7 +1,7 @@
 {% for project in paginator.projects %}	
 <div class="row">
 	<div class="col-md-7">
-		<a href="{{ project.url | prepend: url_base }}">
+		<a href="{{ project.url | prepend: site.baseurl }}">
 			<img class="img-responsive img-hover" src="{{ project.frontimagesrc | default: site.modern.defaults.portfolio.frontimagesrc }}" alt="{{ project.frontimagealt }}">
 		</a>
 	</div>
@@ -9,7 +9,7 @@
 		<h3>{{ project.title }}</h3>
 		{% if project.subheading %}<h4>{{project.subheading}}</h4>{% endif %}
 		<p>{{ project.excerpt | markdownify }}</p>
-		<a class="btn btn-primary" href="{{ project.url | prepend: url_base }}">View Project</i></a>
+		<a class="btn btn-primary" href="{{ project.url | prepend: site.baseurl }}">View Project</i></a>
 	</div>
 </div>
 {% if forloop.last == false %}<hr />{% endif %}

@@ -64,8 +64,8 @@ script: |
 	{% assign sorted = (site.projects | sort: 'date') | reverse  %}
 	{% for project in sorted limit:6 %}
 	<div class="col-md-4 col-sm-6">
-		<a href="{{ project.url | prepend: url_base }}">
-			<img class="img-responsive img-portfolio img-hover" src="{{ project.frontimagesrc }}" alt="{{ project.frontimagealt }}">
+		<a href="{{ project.url | prepend: site.baseurl }}">
+			<img class="img-responsive img-portfolio img-hover" src="{{ project.frontimagesrc | default: site.modern.defaults.portfolio.frontimagesrc  }}" alt="{{ project.frontimagealt }}">
 		</a>
 	</div>
 	{% endfor %}

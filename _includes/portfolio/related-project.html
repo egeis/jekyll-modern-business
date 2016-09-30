@@ -21,7 +21,7 @@
     {% if sameTagCount >= minCommonTags %}
 {% capture newProject%}
 <div class="col-sm-3 col-xs-6">
-	<a href="{{ project.url | prepend: site.baseurl | prepend: url_base }}">
+	<a href="{{ project.url | prepend: site.baseurl | prepend: site.baseurl }}">
 		<img class="img-responsive img-hover img-related" src="{{ project.frontimagesrc | default: site.modern.defaults.portfolio.frontimagesrc }}" alt="{{project.frontimagealt}}">
 	</a>
 </div>     
