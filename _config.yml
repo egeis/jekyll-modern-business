@@ -65,6 +65,9 @@ collections:
    projects:
      output: true
      permalink: /portfolio/:path/
+   members:
+     output: true
+     permalink: /members/:path/	
 
 # Octopress settings
 post_ext: md

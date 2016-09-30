@@ -1,0 +1,45 @@
+<!-- Team Members -->
+<div class="row">
+	<div class="col-lg-12">
+		<h2 class="page-header">Our Team</h2>
+	</div>
+</div>
+ 
+{% for member in site.members | limit: 6 %}
+{% cycle 'add rows' : '<div class="row">', nil , nil  %}   
+    <div class="col-md-4 text-center">
+        <div class="thumbnail">
+            <img class="img-responsive" src="{{ member.image }}" alt="Photograph of {{member.name}}.">
+            <div class="caption">
+                <h3>{{ member.name }}<br>
+                    <small>{{ member.title }}</small>
+                </h3>
+                <p>{{ member.description }}</p>
+                <ul class="list-inline">
+                    {% for slink in member.socialmedia %}
+                    <li><a href="{{slink[1]}}"><i class="fa fa-2x fa-{{slink[0]}}"></i></a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% if forloop.last %}
+</div><!-- /.row -->
+{% else %}
+{% cycle 'close rows' : nil, nil, '</div><!-- /.row -->' %}
+{% endif %}
+{% endfor %}
+
+{% if site.members.size > 6 %}
+<!-- Call to Action Section -->
+<div class="well">
+    <div class="row">
+        <div class="col-md-8">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+        </div>
+        <div class="col-md-4">
+            <a class="btn btn-lg btn-default btn-block" href="{{ url_base }}/about/team/">Meet the Team!</a>
+        </div>
+    </div>
+</div>    
+{% endif %}

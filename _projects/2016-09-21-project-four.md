@@ -5,6 +5,9 @@ subheading: The fourth be with you.
 breadcrumb: Project Four
 tags: 
 - jekyll
+categories:
+- websites
+- github
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it

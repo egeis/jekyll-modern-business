@@ -9,5 +9,9 @@
 	</h3>
 	<p>{{ project.excerpt | markdownify }}</p>
 </div>
-{% cycle 'close rows' : nil, '</div><!-- /.row -->' %}
+	{% if forloop.last %}
+	</div><!-- /.row -->
+	{% else %}
+	{% cycle 'close rows' :  nil, '</div><!-- /.row -->' %}
+	{% endif %}
 {% endfor %}
