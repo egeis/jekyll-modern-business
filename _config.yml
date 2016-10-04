@@ -61,20 +61,33 @@ encoding: "utf-8"
 collections:
    posts:
      permalink: /blog/:categories/:title.html
+     categories:
+       output: true
+       base_dir: blog
      output: true
    projects:
      output: true
-     permalink: /portfolio/:path/
+     categories:
+       output: true
+       base_dir: portfolio
+     permalink: /portfolio/:categories/:title.html
    members:
      output: false
+   customers:
+     output: false   
 
 # Octopress settings
 post_ext: md
 page_ext: html
+paginate:
+  per_page: 10 
+  limit: 5   
+  title_suffix: " - page :num"
+  reversed: false  
 
 # Default templates for posts and pages
 post_layout: post
-page_layout: full-page
+page_layout: default
 
 # Format titles with titlecase?
 titlecase: true

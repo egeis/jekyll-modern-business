@@ -3,12 +3,11 @@
 {% include head.html %}
 <body>
     {% include navigation.html %}
-	{% if page.carousel %}
-	{% include carousel.html %}
-	{% endif %}
     <!-- Page Content -->
     <div class="container">
-       {{ content }}
+       {% include breadcrumbs.html %}
+	   {% if page.header_imagesrc %}{% include image-header.html %}{% endif %}
+	   {{ content }}
 	   <hr>
        {% include footer.html %}
 	   {% include scripts.html %}
