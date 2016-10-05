@@ -8,6 +8,7 @@ description: >
 baseurl: "" 
 url: "http://localhost:4000" 
 repository: 'egeis/jekyll-modern-business'
+category_dir: 'blog'
 
 # Theme Settings
 modern:
@@ -61,15 +62,9 @@ encoding: "utf-8"
 collections:
    posts:
      permalink: /blog/:categories/:title.html
-     categories:
-       output: true
-       base_dir: blog
      output: true
    projects:
      output: true
-     categories:
-       output: true
-       base_dir: portfolio
      permalink: /portfolio/:categories/:title.html
    members:
      output: false

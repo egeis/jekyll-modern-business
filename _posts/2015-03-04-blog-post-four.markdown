@@ -6,7 +6,7 @@ tags:
 - lorem-ipsum
 - github
 - jekyll
-category: 
+categories: 
 - general 
 ---
 

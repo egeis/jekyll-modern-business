@@ -10,7 +10,7 @@ module Jekyll
     #  +base+          is the String path to the <source>.
     #  +category_dir+  is the String path between <source> and the category folder.
     #  +category+      is the category currently being processed.
-    def initialize(template_path, name, site, base, category_dir, category, collection)
+    def initialize(template_path, name, site, base, category_dir, category)
       @site  = site
       @base  = base
       @dir   = category_dir
@@ -23,18 +23,16 @@ module Jekyll
         template_dir    = File.dirname(template_path)
         template        = File.basename(template_path)
         
+        puts "\t\t\t#{category}"
+        
         # Read the YAML data from the layout page.
         self.read_yaml(template_dir, template)
         self.data['category']    = category
-        
         # Set the title for this page.
-        title_prefix             = site.config['category_title_prefix'] || 'Category: '
-        self.data['title']       = "#{title_prefix}#{category}"
+        self.data['title']       = "#{category}".gsub(/[A-Za-z']+/,&:capitalize)
+        self.data['paginate']['category']    = "#{category}"
         
-        # Set the meta-description for this page.
-        meta_description_prefix  = site.config['category_meta_description_prefix'] || 'Category: '
-        self.data['description'] = "#{meta_description_prefix}#{category}"
-        self.data['paginate'] = site.config['paginate']
+        #puts self.data
         
       else
         @perform_render = false
@@ -56,9 +54,9 @@ module Jekyll
     #  +base+         is the String path to the <source>.
     #  +category_dir+ is the String path between <source> and the category folder.
     #  +category+     is the category currently being processed.
-    def initialize(site, base, category_dir, category, collection)
+    def initialize(site, base, category_dir, category)
       template_path = File.join(base, '_layouts', 'category_index.html')
-      super(template_path, 'index.html', site, base, category_dir, category, collection)
+      super(template_path, 'index.html', site, base, category_dir, category)
     end
 
   end
@@ -72,9 +70,9 @@ module Jekyll
     #  +base+         is the String path to the <source>.
     #  +category_dir+ is the String path between <source> and the category folder.
     #  +category+     is the category currently being processed.
-    def initialize(site, base, category_dir, category, collection)
-      template_path = File.join(base, '_includes', 'feeds', 'category_feed.xml')
-      super(template_path, 'atom.xml', site, base, category_dir, category, collection)
+    def initialize(site, base, category_dir, category)
+      template_path = File.join(base, '_includes', 'custom', 'category_feed.xml')
+      super(template_path, 'atom.xml', site, base, category_dir, category)
 
       # Set the correct feed URL.
       self.data['feed_url'] = "#{category_dir}/#{name}" if render?
@@ -89,32 +87,34 @@ module Jekyll
     # writes the output to a file.
     #
     #  +category+ is the category currently being processed.
-    def write_category_index(category,collection)  #TODO: Added Collection to method call, need to implement it somewhere here
-      target_dir = GenerateCategories.category_dir(self.config['collections'][collection]['categories']['base_dir'], category)
-      #target_dir = GenerateCategories.category_dir(self.config['category_dir'], category)
-      index      = CategoryIndex.new(self, self.source, target_dir, category, collection)
+    def write_category_index(category)
+      target_dir = GenerateCategories.category_dir(self.config['category_dir'], category)
+      index      = CategoryIndex.new(self, self.source, target_dir, category)
       if index.render?
+        Octopress::Paginate.paginate(index) #because Paginate plugin is run and does its thing before the Generator is called...
+
         index.render(self.layouts, site_payload)
         index.write(self.dest)
+
         # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
         self.pages << index
       end
 
       # Create an Atom-feed for each index.
-      # feed = CategoryFeed.new(self, self.source, target_dir, category, collection)
-      # if feed.render?
-        # feed.render(self.layouts, site_payload)
-        # feed.write(self.dest)
-        # # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
-        # self.pages << feed
-      # end
+      feed = CategoryFeed.new(self, self.source, target_dir, category)
+      if feed.render?
+        feed.render(self.layouts, site_payload)
+        feed.write(self.dest)
+        # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
+        self.pages << feed
+      end
     end
 
     # Loops through the list of category pages and processes each one.
-    def write_category_indexes(collection)
+    def write_category_indexes
       if self.layouts.key? 'category_index'
         self.categories.keys.each do |category|
-          self.write_category_index(category,collection)
+          self.write_category_index(category)
         end
 
       # Throw an exception if the layout couldn't be found.
@@ -129,15 +129,13 @@ module Jekyll
   # Jekyll hook - the generate method is called by jekyll, and generates all of the category pages.
   class GenerateCategories < Generator
     safe true
-    priority :low
+    priority :highest
 
     CATEGORY_DIR = 'categories'
 
     def generate(site)
-      # TODO: FOR each collection in config.collections DO, 
-      # TEST 'projects'
-      site.write_category_indexes("posts")
-      
+      puts "Generating Categories:"
+      site.write_category_indexes
     end
 
     # Processes the given dir and removes leading and trailing slashes. Falls
@@ -146,6 +144,49 @@ module Jekyll
       base_dir = (base_dir || CATEGORY_DIR).gsub(/^\/*(.*)\/*$/, '\1')
       category = category.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase
       File.join(base_dir, category)
+    end
+
+  end
+
+
+  # Adds some extra filters used during the category creation process.
+  module Filters
+
+    # Outputs a list of categories as comma-separated <a> links. This is used
+    # to output the category list for each post on a category page.
+    #
+    #  +categories+ is the list of categories to format.
+    #
+    # Returns string
+    def category_links(categories)
+      base_dir = @context.registers[:site].config['category_dir']
+      categories = categories.sort!.map do |category|
+        category_dir = GenerateCategories.category_dir(base_dir, category)
+        # Make sure the category directory begins with a slash.
+        category_dir = "/#{category_dir}" unless category_dir =~ /^\//
+        "<a class='category' href='#{category_dir}/'>#{category}</a>"
+      end
+
+      case categories.length
+      when 0
+        ""
+      when 1
+        categories[0].to_s
+      else
+        categories.join(', ')
+      end
+    end
+
+    # Outputs the post.date as formatted html, with hooks for CSS styling.
+    #
+    #  +date+ is the date object to format as HTML.
+    #
+    # Returns string
+    def date_to_html_string(date)
+      result = '<span class="month">' + date.strftime('%b').upcase + '</span> '
+      result += date.strftime('<span class="day">%d</span> ')
+      result += date.strftime('<span class="year">%Y</span> ')
+      result
     end
 
   end
