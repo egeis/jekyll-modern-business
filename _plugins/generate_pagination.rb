@@ -24,13 +24,9 @@ module Jekyll
       def generate(site)
         puts site.config['paging']
       
-        puts 'Paginating: Blog'
         paginate(site, '/blog/index.html', 'blog')
-        puts 'Paginating: Project'
         paginate(site, '/portfolio/index.html', 'project')
-        puts 'Paginating: Blog Categories'
         paginate_categories(site, site.config['paging']['blog']['category_dir'], 'blog_category_index.html', site.categories['blog'], 'blog')
-        puts 'Paginating: Portfolio Categories'
         paginate_categories(site, site.config['paging']['project']['category_dir'], 'portfolio_category_index.html', site.categories['project'], 'project')
       end
 
@@ -95,7 +91,7 @@ module Jekyll
           
           pages = Pager.calculate_pages(all_posts, site.config['paging'][category_index]['per_page'].to_i)
           (1..pages).each do |num_page|
-            pager = Pager.new(site, num_page, all_posts, pages, page)
+            pager = Pager.new(site, num_page, all_posts, pages, page,site.config['paging'][category_index]['per_page'].to_i)
             if num_page > 1
               newpage = CategoryIndex.new(site, site.source, page.dir, category, category_layout)
               newpage.pager = pager
@@ -180,9 +176,9 @@ module Jekyll
     # all_posts - The Array of all the site's Posts.
     # num_pages - The Integer number of pages or nil if you'd like the number
     #             of pages calculated.
-    def initialize(site, page, all_posts, num_pages = nil, target_page)
+    def initialize(site, page, all_posts, num_pages = nil, target_page, per_page)
       @page = page
-      @per_page = site.config['custom_paginate'].to_i
+      @per_page = per_page
       @total_pages = num_pages || Pager.calculate_pages(all_posts, @per_page)
 
       if @page > @total_pages

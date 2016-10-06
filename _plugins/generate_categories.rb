@@ -72,7 +72,7 @@ module Jekyll
         
             if self.categories["#{category}"].select {  |post| post.categories[0] == 'project' }.length != 0
                 target_dir = GenerateCategories.category_dir(self.config['paging']['project']['category_dir'], category)
-                index      = CategoryIndex.new(self, self.source, target_dir, category, "projects_category_index.html")
+                index      = CategoryIndex.new(self, self.source, target_dir, category, "project_category_index.html")
                 if index.render?
                     index.render(self.layouts, site_payload)
                     index.write(self.dest)
