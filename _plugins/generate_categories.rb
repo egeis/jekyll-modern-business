@@ -61,25 +61,6 @@ module Jekyll
 
 	end
 
-	# The CategoryFeed class creates an Atom feed for the specified category.
-	class CategoryFeed < CategoryPage
-
-		# Initializes a new CategoryFeed.
-		#
-		#  +site+         is the Jekyll Site instance.
-		#  +base+         is the String path to the <source>.
-		#  +category_dir+ is the String path between <source> and the category folder.
-		#  +category+     is the category currently being processed.
-		def initialize(site, base, category_dir, category)
-			template_path = File.join(base, '_includes', 'feeds', 'category_feed.xml')
-			super(template_path, 'atom.xml', site, base, category_dir, category)
-
-			# Set the correct feed URL.
-			self.data['feed_url'] = "#{category_dir}/#{name}" if render?
-		end
-
-	end
-
 	# The Site class is a built-in Jekyll class with access to global site config information.
 	class Site
         RESTRICTED_CATEGORIES = ['blog','project']
@@ -89,7 +70,7 @@ module Jekyll
 		#  +category+ is the category currently being processed.
 		def write_category_index(category)
         
-            if self.categories[index.data['category']].select {  |post| post.categories[0] == 'project' }.length != 0
+            if self.categories["#{category}"].select {  |post| post.categories[0] == 'project' }.length != 0
                 target_dir = GenerateCategories.category_dir(self.config['paging']['project']['category_dir'], category)
                 index      = CategoryIndex.new(self, self.source, target_dir, category, "projects_category_index.html")
                 if index.render?
@@ -98,7 +79,7 @@ module Jekyll
                     # Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
                     self.pages << index
                 end
-            elsif self.categories[index.data['category']].select {  |post| post.categories[0] == 'blog' }.length != 0
+            elsif self.categories["#{category}"].select {  |post| post.categories[0] == 'blog' }.length != 0
                 target_dir = GenerateCategories.category_dir(self.config['paging']['blog']['category_dir'], category)
                 index      = CategoryIndex.new(self, self.source, target_dir, category,  "blog_category_index.html")
                 if index.render?
@@ -108,17 +89,6 @@ module Jekyll
                     self.pages << index
                 end
 			end
-
-			# Create an Atom-feed for each index.
-			feed = CategoryFeed.new(self, self.source, target_dir, category)
-			if feed.render?
-				feed.render(self.layouts, site_payload)
-				feed.write(self.dest)
-				# Record the fact that this pages has been added, otherwise Site::cleanup will remove it.
-				self.pages << feed
-			end
-            
-            
 		end
         
         def write_category_indexes

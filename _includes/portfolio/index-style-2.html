@@ -1,4 +1,4 @@
-{% for project in paginator.projects %}	
+{% for project in paginator.posts %}	
 {% cycle 'add rows' : '<!-- Projects Row --><div class="row">', nil %}
 <div class="col-md-6 img-portfolio">
 	<a href="{{ project.url | prepend: site.baseurl }}">
