@@ -1,11 +1,12 @@
 ---
-layout: post
+layout: blog
 title: Blog Post Part Deux
 author: Your Name
 tags: 
 - lorem-ipsum
 - github
 categories:
+- blog
 - programming 
 date: 2016-09-21 09:00:00 +8
 ---

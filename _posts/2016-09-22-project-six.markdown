@@ -1,13 +1,9 @@
 ---
 layout: project 
-title: Project Four
+title: Project Six
 subheading: The fourth be with you.
-breadcrumb: Project Four
 tags: 
-- jekyll
-categories:
-- websites
-- github
+- lorem-ipsum
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it
@@ -20,7 +16,9 @@ carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it 
    title: PlaceHolder Three
-   caption: PlaceHolder Three   
+   caption: PlaceHolder Three 
+categories:
+- project   
 ---
 Lucas ipsum dolor sit amet gavyn chistori jade fett rahm qrygg cal padmé yavin dormé. Kalee zam joh coruscant qrygg.<!--more--> Theelin abyssin wedge mas vader. Sanyassan moff gamorrean clawdite nar choka gwurran yuvernian darth. Dooku vuffi kal kit bespin. Reach kanos selkath galen fett echani vor cb-99 ric. Jerec dagobah bando sykes draethos gonk solo wicket darth. Windu rahn wesell t88 ongree moff. Bane dressellian gorog darth. Haruun sith zannah endocott ranat. Gran san owen wicket fortuna. Kast gerb moff mace gilad chewbacca sluis elrood.
 

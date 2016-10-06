@@ -7,6 +7,8 @@ tags:
 - lorem-ipsum
 - github
 - jekyll
+categories:
+- project
 video: 8aWB7bh9Q3k
 carousel:
  - src: http://placehold.it/750x500

@@ -1,9 +1,14 @@
 ---
 layout: project 
-title: Project Six
+title: Project Four
 subheading: The fourth be with you.
+breadcrumb: Project Four
 tags: 
-- lorem-ipsum
+- jekyll
+categories:
+- project
+- websites
+- github
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it

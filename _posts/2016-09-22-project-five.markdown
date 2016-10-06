@@ -6,6 +6,8 @@ frontimagesrc: "http://placehold.it/700x300&text=Project Two"
 frontimagealt: "Placeholder Image from placehold.it"
 tags: 
 - github
+categories:
+- project
 carousel:
  - src: http://placehold.it/750x500
    alt: image from placehold.it

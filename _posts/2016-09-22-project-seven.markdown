@@ -17,6 +17,8 @@ carousel:
    alt: image from placehold.it 
    title: PlaceHolder Three
    caption: PlaceHolder Three   
+categories:
+- project
 ---
 Lorem **ipsum** dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.<!--more--> Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.
 

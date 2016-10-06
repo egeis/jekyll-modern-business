@@ -8,7 +8,15 @@ description: >
 baseurl: "" 
 url: "http://localhost:4000" 
 repository: 'egeis/jekyll-modern-business'
-category_dir: 'blog'
+
+paging:
+  permalink: /page:num/
+  blog:
+    per_page: 4
+    category_dir: 'blog'
+  project:
+    per_page: 6
+    category_dir: 'portfolio'
 
 # Theme Settings
 modern:
@@ -36,12 +44,10 @@ gems:
   - jekyll-feed
   - jekyll-sitemap
   - octopress  
-  - octopress-paginate
 whitelist:
   - jekyll-feed
   - jekyll-sitemap
   - octopress
-  - octopress-paginate
 include:
   - .htaccess
   - _pages
@@ -74,11 +80,6 @@ collections:
 # Octopress settings
 post_ext: md
 page_ext: html
-paginate:
-  per_page: 10 
-  limit: 5   
-  title_suffix: " - page :num"
-  reversed: false  
 
 # Default templates for posts and pages
 post_layout: post

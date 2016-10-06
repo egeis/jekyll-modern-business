@@ -1,12 +1,13 @@
 ---
-layout: post
+layout: blog
 title: Blog Post Number Four
 author: Bob Someone
 tags: 
 - lorem-ipsum
 - github
 - jekyll
-categories: 
+categories:
+- blog 
 - general 
 ---
 
