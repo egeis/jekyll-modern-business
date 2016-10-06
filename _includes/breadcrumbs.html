@@ -4,14 +4,16 @@
 		<h1 class="page-header">{{page.title}}{% if page.subheading %} <small>{{page.subheading}}</small>{% endif %}</h1>
 		<ol class="breadcrumb">
 			<li><a href="{{ site.url }}/">Home</a></li>{% assign position = 0 %}
-		{% for crumb in breadcrumbs %}
-		{% if crumb.url == "/" %}{% continue %}{% endif %}
-		{% assign position = position  | plus: 1 %}
-			<li {% if forloop.last %}class="active"{%endif%}>
-				<a href="{{ crumb.url | prepend: site.baseurl }}">{{ crumb.title }}</a>
-				<meta property="position" content="{{ position }}" />
-			</li>
-		{% endfor %}
+            {% assign crumbs = page.url | split: '/' %}
+            {% for crumb in crumbs offset: 1 %}
+            {% assign position = position  | plus: 1 %}
+            {% if forloop.last %}
+                <li  class="current">{{ page.title }}<meta property="position" content="{{ position }}" /></li>
+            {% else %}
+                <li><a href="{{ site.url | append: site.baseurl }}{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | capitalize}}</a><meta property="position" content="{{ position }}" /></li>
+            {% endif %}
+            
+            {% endfor %}
 		</ol>
 	</div>
 </div>
